@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머_더하기</title>
+</head>
+<body>
+    <div class="wrap">
+        <button>더하기 시작</button>
+        <button>더하기 멈추기</button>
+        <h1>0</h1>
+    </div>
+    <script>
+        const addBtn = document.getElementsByTagName("button")[0];
+        const stopBtn = document.getElementsByTagName("button")[1];
+        const num = document.getElementsByTagName("h1")[0];
+        let timer = 0;
+        addBtn.addEventListener("click", function(){
+            interval();
+        })
+
+        function interval(){
+            clearInterval(timer);
+            let seconds = 0;
+            timer = setInterval(function(){
+                seconds++;
+                num.innerHTML = seconds;
+            },10)
+        }
+
+        stopBtn.addEventListener("click", function(){
+            clearInterval(timer);
+        })
+
+
+    </script>
+</body>
+</html>

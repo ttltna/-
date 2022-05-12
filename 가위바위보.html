@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <script>
+        window.onload = function(){
+            const btn = document.querySelector(".resetBtn");
+            const myhand = document.querySelector(".hand");
+            const handArr = ["가위", "바위", "보"];
+            const randNum = Math.round(Math.random()*(handArr.length-1));
+            myhand.innerText = handArr[randNum];
+            btn.addEventListener("click",function(){
+                const clickRandNum = Math.round(Math.random()*(handArr.length-1));
+                myhand.innerText = handArr[clickRandNum];
+            })
+        }
+    </script>
+</head>
+<body>
+    <!-- 왜 틀렸는지 모르겠음-->
+    <!-- <script>
+        const btn = document.querySelector("resetBtn");
+        const myhand = document.querySelector("hand");
+        let handArr = ["가위","바위","보"];
+        let num = Math.floor(Math.random()*2);
+        function resetBtnHandle(){
+            myhand.innerText = handArr[num];
+            console.log(num);
+        }
+        btn.addEventListener("click",resetBtnHandle());
+    </script> -->
+    <button class="resetBtn">리셋</button>
+    <div class="hand"></div>
+</body>
+</html>

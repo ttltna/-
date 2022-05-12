@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>각도회전</title>
+    <style>
+        .arrowWrap{
+            margin : 30px;
+        }
+        .arrowWrap img{
+            /* transition : transform 0.5s cubic-bezier(0.075, 0.082, 0.165, 1); */
+            transition: all 0.3s; /* 부드럽게 돌아가도록 트랜지션 사용 */
+            width: 30%;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            const reset = document.querySelector(".resetBtn");
+            const turn = document.querySelector(".turnBtn");
+            const deg = document.getElementsByTagName("h1")[0];
+            const arrow = document.querySelector(".arrow");
+            
+            reset.addEventListener("click",function(){
+                deg.innerText = "0deg";
+                arrow.style.transform = "rotate(" + 0 + "deg)";
+            });
+            turn.addEventListener("click",function(){
+                let rotateNum = Math.round(Math.random()*360);
+                deg.innerText = rotateNum + "deg";
+                arrow.style.transform = "rotate("+ rotateNum +"deg)";
+                // arrow.style.transform = rotateNum;
+            });
+        }
+    </script>
+</head>
+<body>
+    <button class="resetBtn">리셋</button>
+    <button class="turnBtn">회전</button>
+    <h1>0deg</h1>
+    <div class="arrowWrap">
+        <img class="arrow" src="./img/up-arrow.svg" alt="">
+    </div>
+</body>
+</html>
